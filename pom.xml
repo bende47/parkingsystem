@@ -12,7 +12,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<sonar.projectKey>parking_p4</sonar.projectKey>
+		<sonar.organization>bende47</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>1b42107b5d0b2bd0e6e149733f781ffd58fb2d46</sonar.login>
 	</properties>
+
 
 	<profiles>
 		<profile>
