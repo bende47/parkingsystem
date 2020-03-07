@@ -1,9 +1,15 @@
 package com.parkit.parkingsystem.config;
 
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.sql.*;
 
 public class DataBaseConfig {
 
@@ -12,9 +18,20 @@ public class DataBaseConfig {
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         logger.info("Create DB connection");
         Class.forName("com.mysql.cj.jdbc.Driver");
+        String user = "";
+        String pass = "";
+        try (InputStream input = new FileInputStream("key.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            user = prop.getProperty("username");
+            pass = prop.getProperty("password");
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/prod?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC","root","rootroot");
+                "jdbc:mysql://localhost:3306/prod?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC",user ,pass );
     }
+
 
     public void closeConnection(Connection con){
         if(con!=null){
@@ -48,4 +65,5 @@ public class DataBaseConfig {
             }
         }
     }
+
 }
