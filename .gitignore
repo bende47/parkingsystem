@@ -1,2 +1,13 @@
 /target/
 /bin/
+
+
+/target/
+/.classpath
+/*.project
+/.idea/
+/parking-system.iml
+/key.properties
+/.settings/
+/log/
+/parking-system.iml

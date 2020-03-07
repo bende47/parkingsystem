@@ -22,7 +22,7 @@ public class DataBaseTestConfig extends DataBaseConfig {
            Class.forName("com.mysql.cj.jdbc.Driver");
            String user = "";
            String pass = "";
-           try (InputStream input = new FileInputStream("key.properties")) {
+           try (InputStream input = new FileInputStream("src/main/resources/key.properties")) {
                Properties prop = new Properties();
                prop.load(input);
                user = prop.getProperty("username");

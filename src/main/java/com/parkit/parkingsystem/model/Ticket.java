@@ -2,6 +2,8 @@ package com.parkit.parkingsystem.model;
 
 import java.util.Date;
 
+import org.junit.Ignore;
+
 public class Ticket {
 
 	private int id;
@@ -42,21 +44,22 @@ public class Ticket {
 	public void setPrice(double price) {
 		this.price = Math.round(price * 100) / 100.00;
 	}
-
+	@Ignore
 	public Date getInTime() {
-		return inTime;
+		return inTime != null ? (Date) inTime.clone() : null;
 	}
-
+	@Ignore
 	public void setInTime(Date inTime) {
-		this.inTime = inTime;
+		this.inTime = inTime !=null  ? (Date) inTime.clone() : null;
 	}
 
+	@Ignore
 	public Date getOutTime() {
-		return outTime;
+		return outTime != null ? (Date) outTime.clone() : null;
 	}
-
+	@Ignore
 	public void setOutTime(Date outTime) {
-		this.outTime = outTime;
+		this.outTime = outTime !=null  ? (Date) outTime.clone() : null;
 	}
 
 }
